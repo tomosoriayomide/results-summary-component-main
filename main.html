@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32x32.png"
+    />
+    <style>
+      @font-face {
+        font-family: seventy;
+        src: url(/assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+      }
+      @font-face {
+        font-family: regular;
+        src: url(/assets/fonts/static/HankenGrotesk-Medium.ttf);
+      }
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: hsl(221, 100%, 96%);
+        /* height: 100vh; */
+      }
+      .container {
+        background-color: white;
+        width: 50%;
+        margin: 10% auto;
+        border-radius: 12px;
+        display: flex;
+      }
+      .resultwrapper {
+        background: linear-gradient(
+          0deg,
+          hsl(241, 81%, 54%),
+          hsl(252, 100%, 67%)
+        );
+        /* height: 100%; */
+        width: 50%;
+        border-radius: 12px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        /* justify-content: center; */
+        padding: 12px;
+      }
+      .summarywrapper {
+        /* background-color: beige; */
+        width: 50%;
+        padding: 10px 30px 30px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .summary {
+        font-family: seventy;
+        font-size: 20px;
+      }
+      .circle {
+        border-radius: 100%;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* hsl(252, 100%, 67%) */
+        /* hsl(241, 81%, 54%) */
+        height: 150px;
+        background: linear-gradient(
+          0deg,
+          hsla(241, 72%, 46%, 0),
+          hsla(256, 72%, 46%, 1)
+        );
+        /* border: 2px solid red; */
+        /* background-color: red; */
+      }
+      #number {
+        color: white;
+        font-size: 50px;
+        display: block;
+        font-family: seventy;
+        font-weight: 700;
+      }
+      .resultwrapper h2:first-child {
+        font-family: regular;
+        font-size: 15px;
+        color: hsl(221, 25%, 85%);
+      }
+      .great {
+        /* display: none; */
+        color: hsl(221, 100%, 96%);
+        font-family: regular;
+        font-size: 25px;
+      }
+      #hundred {
+        /* font-family: sans-serif; */
+        font-size: 11px;
+        font-family: regular;
+        color: hsl(223, 20%, 73%);
+        font-weight: 600;
+      }
+      .rating {
+        /* font-family: sans-serif; */
+        font-family: regular;
+        text-align: center;
+        font-size: 15px;
+        color: hsl(224, 52%, 84%);
+        font-weight: 500;
+        padding-bottom: 24px;
+        /* background-color: red; */
+        width: 60%;
+      }
+      .reaction {
+        display: flex;
+        justify-content: space-between;
+        /* background-color: red; */
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 10px;
+      }
+      .left {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-family: regular;
+      }
+      .continue:hover {
+        background: linear-gradient(
+          0deg,
+          hsl(241, 81%, 54%),
+          hsl(252, 100%, 67%)
+        );
+        /* background-color:  hsl(241, 81%, 54%); */
+        cursor: pointer;
+      }
+      .continue {
+        border-radius: 30px;
+        border: none;
+        background-color: hsl(224, 30%, 27%);
+        padding: 15px;
+        color: white;
+        width: 100%;
+      }
+      #score {
+        font-family: seventy;
+      }
+      #reaction {
+        background-color: hsla(0, 100%, 67%, 0.1);
+      }
+      #reaction #text {
+        color: hsl(0, 100%, 67%);
+      }
+
+      #memory {
+        background-color: hsla(39, 100%, 56%, 0.1);
+      }
+      #memory #text {
+        color: hsl(39, 100%, 56%);
+      }
+      #verbal {
+        background-color: hsla(166, 100%, 37%, 0.1);
+      }
+      #verbal #text {
+        color: hsl(166, 100%, 37%);
+      }
+      #visual {
+        background-color: hsla(234, 85%, 45%, 0.1);
+      }
+      #visual #text {
+        color: hsl(234, 85%, 45%);
+      }
+      #total {
+        font-family: regular;
+        color: hsla(0, 0%, 0%, 0.3);
+      }
+      @media screen and (min-width: 300px) and (max-width: 750px) {
+        .container {
+          flex-direction: column;
+          width: 90%;
+        }
+        .design {
+          display: none;
+        }
+        .resultwrapper,
+        .summarywrapper {
+          width: 100%;
+        }
+        .resultwrapper {
+          border-top-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-right-radius: 40px;
+          border-bottom-left-radius: 40px;
+        }
+        .rating {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="resultwrapper">
+        <h2>Your Result</h2>
+        <div class="circle">
+          <span id="number">76</span>
+          <span id="hundred">of 100</span>
+        </div>
+        <h2 class="great">Great</h2>
+        <p class="rating">
+          You scored higher than 65% of the people who have taken these tests
+        </p>
+      </div>
+      <div class="summarywrapper">
+        <div class="summary">Summary</div>
+        <div class="reaction" id="reaction">
+          <div class="left">
+            <img
+              src="/assets/images/icon-reaction.svg"
+              alt=""
+              class="logos"
+            /><span id="text">Reaction</span>
+          </div>
+          <div class="right">
+            <span id="score">80 </span> <span id="total"> / 100 </span>
+          </div>
+        </div>
+        <div class="reaction" id="memory">
+          <div class="left">
+            <img
+              src="/assets/images/icon-memory.svg"
+              alt=""
+              class="logos"
+            /><span id="text">Memory</span>
+          </div>
+          <div class="right">
+            <span id="score">92 </span> <span id="total"> / 100 </span>
+          </div>
+        </div>
+
+        <div class="reaction" id="verbal">
+          <div class="left">
+            <img
+              src="/assets/images/icon-verbal.svg"
+              alt=""
+              class="logos"
+            /><span id="text">Verbal</span>
+          </div>
+          <div class="right">
+            <span id="score">61 </span> <span id="total"> / 100 </span>
+          </div>
+        </div>
+        <div class="reaction" id="visual">
+          <div class="left">
+            <img
+              src="/assets/images/icon-visual.svg"
+              alt=""
+              class="logos"
+            /><span id="text">Visual</span>
+          </div>
+          <div class="right">
+            <span id="score">73 </span> <span id="total"> / 100 </span>
+          </div>
+        </div>
+        <button class="continue" type="button" role="button">Continue</button>
+      </div>
+    </div>
+  </body>
+</html>
